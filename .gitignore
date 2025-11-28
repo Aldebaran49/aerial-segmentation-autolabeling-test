@@ -1,0 +1,14 @@
+data/
+
+output_vis/
+output_vis_*/
+
+weights/
+*.pth
+*.pt
+
+__pycache__/
+*.pyc
+.vs/
+.vscode/
+.idea/
