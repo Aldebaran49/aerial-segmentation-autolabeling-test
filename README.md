@@ -4,7 +4,7 @@
 
 1.  **Клонируйте репозиторий:**
     ```bash
-    git clone https://github.com/ВАШ_НИК/aerial-segmentation-auto-labeling.git
+    git clone https://github.com/Aldebaran49/aerial-segmentation-auto-labeling.git
     cd aerial-segmentation-auto-labeling
     ```
 
@@ -27,7 +27,7 @@
 
 Откройте `main.py` и настройте параметры в блоке конфигурации:
 ```
-DATASET_NAME = "uavid"      # "aeroscapes" или "uavid"
+DATASET_NAME = "uavid"      # "aeroscapes" или "uavid" или "uavidmin"
 MODEL_NAME = "segformer"    # "segformer", "deeplab" или "sam"
 ```
 
@@ -36,18 +36,13 @@ MODEL_NAME = "segformer"    # "segformer", "deeplab" или "sam"
 python main.py
 ```
 
-### Тест Grounded-SAM на одном изображении
-Для отладки промптов и проверки работы SAM используйте:
-```bash
-python sam_test.py
-```
 ## 📂 Структура проекта
 
 *   `data/` - Папка для датасетов (не включена в git).
 *   `src/`
     *   `datasets/` - Загрузчики данных и конвертеры JSON.
     *   `models/` - Обертки для SegFormer, DeepLab и Grounded-SAM.
-    *   `evaluation/` - Расчет метрик.
+    *   `evaluator.py` - Расчет метрик.
     *   `utils.py` - Словари маппинга классов и конфиги промптов.
 *   `weights/` - Веса моделей.
 *   `main.py` - Точка входа.
