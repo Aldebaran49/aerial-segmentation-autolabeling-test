@@ -29,7 +29,10 @@ class DeepLabModel:
              raise FileNotFoundError(f"Нет файла весов: {weights_path}")
              
         print(f"[DeepLab] Loading weights...")
-        checkpoint = torch.load(weights_path, map_location=self.device)
+        try:
+            checkpoint = torch.load(weights_path, map_location=self.device, weights_only=False)
+        except TypeError:
+            checkpoint = torch.load(weights_path, map_location=self.device)
         
         if 'model_state' in checkpoint:
             self.model.load_state_dict(checkpoint['model_state'])
